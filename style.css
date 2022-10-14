@@ -1,0 +1,992 @@
+/* main styles */
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body {
+  font-family: 'Familjen Grotesk', sans-serif;
+}
+
+/* Fixed Buttons */
+.fixed-btn {
+  position: fixed;
+  border: 1px solid orange;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 11;
+}
+
+.fixed-btn:hover {
+  color: orange;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.fixed-btn i {
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+
+.support-chat-btn {
+  right: 1rem;
+  bottom: 5%;
+}
+
+/* Search form */
+.search-form {
+  position: absolute;
+  top: 115%;
+  right: 7%;
+  background: #fff;
+  width: 30rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.search-form.active {
+  transform: scaleY(1);
+}
+
+.search-form input {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: #555;
+  padding: 1rem;
+  text-transform: none;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.search-form input:hover {
+  border: 2px solid #333;
+}
+
+.search-form label {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 1rem;
+  color: #555;
+}
+
+.search-form label:hover {
+  color: orange;
+}
+
+/* Shopping Card */
+.cart-items-container {
+  position: absolute;
+  top: 70%;
+  right: -100%;
+  height: calc(100vh - 9.5rem);
+  width: 35rem;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
+  padding: 0 1.5rem;
+  transition: all 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.cart-items-container.active {
+  transform: scaleX(1);
+  right: 0;
+}
+
+.cart-items-container .cart-item {
+  position: relative;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.cart-items-container .cart-item:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid orange;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
+}
+
+.cart-items-container .cart-item .fa-times {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.cart-items-container .cart-item .fa-times:hover {
+  color: orange;
+}
+
+.cart-items-container .cart-item img {
+  height: 7rem;
+}
+
+.cart-items-container .cart-item .store-content h3 {
+  font-size: 1.7rem;
+  color: #fff;
+  padding-bottom: .5rem;
+}
+
+.cart-items-container .cart-item .store-content .price {
+  font-size: 1.2rem;
+  color: #999;
+}
+
+/* Support Chat */
+.support-chat-container {
+  position: absolute;
+  top: 80%;
+  right: -100%;
+  height: calc(100vh - 7rem);
+  width: 20rem;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 3rem 1.5rem;
+  transition: all 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.support-chat-container.active {
+  transform: scale(1);
+  right: 5rem;
+}
+
+.support-chat-container .chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.support-chat-container .message {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.support-chat-container .message.left {
+  padding: 15px 20px 15px 70px;
+}
+
+.support-chat-container .message.right {
+  align-self: flex-end;
+  padding: 15px 70px 15px 20px;
+}
+
+.support-chat-container .chat-logo {
+  border-radius: 50%;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.7);
+  object-fit: cover;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  width: 50px;
+  height: 50px;
+}
+
+.support-chat-container .message.right .chat-logo {
+  left: auto;
+  right: 10px;
+}
+
+.support-chat-container .message p {
+  margin: 0;
+}
+
+.support-chat-container .text_input {
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+/* Mobile Menu */
+#mobile-menu {
+  display: none;
+}
+
+.mobile-menu-container {
+  position: absolute;
+  top: 70%;
+  right: -100%;
+  height: calc(100vh - 9.5rem);
+  width: 25rem;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
+  padding: 0 1.5rem;
+  transition: all 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.mobile-menu-container.active {
+  transform: scaleX(1);
+  right: 0;
+}
+
+.mobile-menu-container a {
+  color: #fff;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-container a:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+}
+
+/* ========== all similar content styling ========== */
+.content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-main,
+.accessories-1,
+.software-1,
+.software-2 {
+  background-color: #000000;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.section-main,
+.section-accessories,
+.section-software,
+.section-contact,
+footer {
+  color: #fff;
+}
+
+.drones-content,
+.specialized-content,
+.contact-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.section-drones .drones-content,
+.section-accessories .accessories-content,
+.software-list .software-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.section-specialized {
+  background: #fff;
+}
+
+.section-drones .content,
+.section-accessories .accessories-1 .content,
+.section-accessories .accessories-2 .content,
+footer {
+  text-align: center;
+}
+
+.accessories-2,
+.section-contact {
+  background: #111;
+}
+
+/* Main Btn Style */
+.btn {
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+
+.btn {
+  color: #FFF;
+  transition: all 0.5s;
+  position: relative;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.btn:hover::before {
+  opacity: 0;
+  transform: scale(0.5, 0.5);
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transform: scale(1.2, 1.2);
+}
+
+.btn:hover::after {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+/* title styles */
+.title-style {
+  text-transform: uppercase;
+  padding: 1rem;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: 'Ubuntu', sans-serif;
+  position: relative;
+}
+
+.title-1 {
+  color: #999;
+}
+
+.title-2 {
+  color: #fff;
+}
+
+/* ========== background imgs ========== */
+/* section main */
+.section-main {
+  background-image: url('imgs/main.jpg');
+}
+
+/* section accessories */
+.accessories-1 {
+  background-image: url('imgs/accessories.jpg');
+}
+
+/* section software */
+.software-1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imgs/software/software-1.jpg');}
+
+.software-2 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('imgs/software/software-2.jpg');
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  position: fixed;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  z-index: 9;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar.sticky {
+  padding: 0;
+}
+
+.navbar .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar .logo img {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  width: 10%;
+}
+
+.navbar .logo a {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+.navbar .logo a span {
+  color: orange;
+  transition: all 0.3s ease;
+}
+
+.navbar .desktop-main-menu .menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+.navbar .desktop-main-menu .menu li a {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 25px;
+  padding: 1rem;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+}
+
+.navbar .desktop-main-menu .menu li a:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+}
+
+.navbar .content .navbar-icons i {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #000;
+  transition: all 0.3s ease;
+}
+
+.navbar .content .navbar-icons i:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+}
+
+/* ========== Section Main ========== */
+.section-main .main-content {
+  width: 700px;
+  padding: 10rem 3rem;
+}
+
+.section-main .main-content h3 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.section-main .main-content p {
+  font-size: 1.7rem;
+  font-weight: lighter;
+  line-height: 1.5;
+  padding: 1rem 0;
+  color: #eee;
+}
+
+/* ========== Section Drones ========== */
+.section-drones .drones-content {
+  position: relative;
+}
+
+.card-style {
+  height: 550px;
+  width: 350px;
+  margin: 20px;
+  border-radius: 5px;
+  padding: 50px 25px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-style:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-style img {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+}
+
+.card-style .text {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+
+.card-style span {
+  font-size: 20px;
+  text-decoration: line-through;
+}
+
+.section-drones .drones-content .card-style i {
+  color: #333;
+}
+
+.card-style i {
+  cursor: pointer;
+  padding: 1rem;
+  background: none;
+  border: 1px solid #999;
+  border-radius: 5px;
+  transition: all .3s;
+}
+
+.card-style i:hover {
+  border: 1px solid orange;
+  background: orange;
+}
+
+/* ========== Section Specialized ========== */
+.section-specialized .specialized-content .items {
+  margin: 1rem;
+  width: 900px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: auto auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.section-specialized .specialized-content .items .item-style {
+  height: 350px;
+  position: relative;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.item-style img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.item-style .item-content-1 h2 {
+  position: absolute;
+  font-size: 50px;
+  padding: 1rem 5rem;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+.item-style .item-content-2 {
+  position: relative;
+  padding: 7rem 5rem;
+  color: #fff;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.item-style .item-content-2 p {
+  margin: 40px;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.item-style:hover img {
+  filter: brightness(50%);
+}
+
+.item-style:hover .item-content-2 {
+  opacity: 1;
+}
+
+/* ========== Section Accessories ========== */
+/* Accessories List 1 */
+.section-accessories .accessories-1 .accessories-content .card-style {
+  background: rgba(255, 255, 255, 0.200);
+}
+
+/* Accessories List 2 */
+.section-accessories .accessories-2 .accessories-content .card-style {
+  background: #222;
+}
+
+/* ========== Section Software ========== */
+.section-software .software-content {
+  width: 700px;
+  padding: 1rem 3rem;
+}
+
+.section-software .software-content h3 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.software-style {
+  position: relative;
+  display: flex;
+}
+
+.software-1 {
+  height: 30vh;
+}
+
+.software-2 {
+  min-height: 50vh;
+}
+
+.software-title {
+  text-align: center;
+  background: #222;
+}
+
+.software-title h2 {
+  padding: 1rem;
+}
+
+.software-main-content {
+  display: flex;
+}
+
+.software-main-content .soft-img-style img {
+  position: absolute;
+  width: 300px;
+}
+
+.software-content {
+  text-align: center;
+}
+
+.software-content .btn {
+  margin: 1rem;
+}
+
+.software-content .soft-btns {
+  display: flex;
+}
+
+.soft-img-1 img {
+  right: 5rem;
+}
+
+.soft-img-2 img {
+  left: 5rem;
+}
+
+/* ========== Section Contacts ========== */
+.section-contact .contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.section-contact .contact-content .column {
+  padding: 1rem;
+}
+
+.section-contact .contact-content .text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.section-contact .contact-content .left p {
+  text-align: justify;
+}
+
+.section-contact .contact-content .left .icons {
+  margin: 10px 0;
+}
+
+.section-contact .contact-content .row {
+  display: flex;
+  height: 65px;
+  align-items: center;
+}
+
+.section-contact .contact-content .row .info {
+  margin-left: 30px;
+}
+
+.section-contact .contact-content .row i {
+  font-size: 25px;
+  color: orange;
+}
+
+.section-contact .contact-content .info .head {
+  font-weight: 500;
+}
+
+.section-contact .contact-content .info .sub-title {
+  color: #333;
+}
+
+.section-contact .contact-content .right form .fields {
+  display: flex;
+}
+
+.section-contact .contact-content .right form .field,
+.section-contact .contact-content .right form .fields .field {
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.section-contact .contact-content .right form .textarea {
+  height: 80px;
+  width: 100%;
+}
+
+.section-contact .contact-content .right form .name {
+  margin-right: 10px;
+}
+
+.section-contact .contact-content .right form .field input,
+.section-contact .contact-content .right form .textarea textarea {
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.section-contact .contact-content .right form .field input:focus,
+.section-contact .contact-content .right form .textarea textarea:focus {
+  border-color: #b3b3b3;
+}
+
+.section-contact .contact-content .right form .textarea textarea {
+  padding-top: 10px;
+  resize: none;
+}
+
+.section-contact .contact-content .right form .button-area {
+  display: flex;
+  align-items: center;
+}
+
+.right form .button-area button {
+  color: #fff;
+  display: block;
+  width: 160px !important;
+  height: 45px;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-wrap: nowrap;
+  background: orange;
+  border: 2px solid orange;
+  transition: all 0.3s ease;
+}
+
+.right form .button-area button:hover {
+  color: orange;
+  background: none;
+}
+
+/* ========== Section Footer ========== */
+footer {
+  background: #000;
+}
+
+footer .footer-content {
+  text-align: center;
+}
+
+.footer-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer-menu a {
+  padding: 15px;
+  font-size: 1.2rem;
+  color: #999;
+  transition: all 0.3s ease;
+}
+
+.footer-menu a:hover {
+  color: #fff;
+}
+
+.footer-icons {
+  padding: 1rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-icons i {
+  cursor: pointer;
+  background: none;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.footer-icons i:hover {
+  color: orange;
+  background: #333;
+}
+
+footer p {
+  padding: 1rem;
+}
+
+/* ========== Media Queries ========== */
+@media only screen and (max-width:1340px) {
+
+  .soft-img-1 img {
+    right: 0.2rem;
+  }
+  
+  .soft-img-2 img {
+    left: 0.2rem;
+  }
+
+}
+
+@media only screen and (max-width:1091px) {
+
+  html {
+    font-size: 90%;
+  }
+
+  .desktop-main-menu {
+    display: none;
+  }
+
+  #mobile-menu {
+    display: inline-block;
+  }
+
+  .card-style {
+    width: 300px;
+    margin: 10px;
+    padding: 30px 5px;
+  }
+
+  .section-contact .map iframe {
+    width: 100%;
+  }
+
+}
+
+@media only screen and (max-width:991px) {
+
+  html {
+    font-size: 80%;
+  }
+
+  .section-specialized .specialized-content .items {
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+
+  .section-drones .drones-content,
+  .section-accessories .accessories-content {
+    grid-template-columns: 1fr 1fr;
+    margin: 5px;
+    padding: 25px 0;
+  }
+
+  .soft-img-1 img,
+  .soft-img-2 img {
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width:721px) {
+
+  html {
+    font-size: 70%;
+  }
+
+  .search-form {
+    width: 20rem;
+  }
+
+  .support-chat-container {
+    width: 18rem;
+  }
+
+  .cart-items-container {
+    width: 25rem;
+  }
+
+  .navbar .logo a {
+    font-size: 30px;
+  }
+
+  .section-main .main-content,
+  .section-software .software-content {
+    width: 300px;
+  }
+
+  .section-drones .drones-content,
+  .section-specialized .specialized-content .items,
+  .section-accessories .accessories-content,
+  .section-contact .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .card-style img {
+    height: 200px;
+    width: 200px;
+  }
+
+}
