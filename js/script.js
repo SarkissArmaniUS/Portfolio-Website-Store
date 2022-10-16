@@ -11,7 +11,6 @@ document.querySelector('#search-btn').onclick = () =>{
     searchForm.classList.toggle('active');
     cartItem.classList.remove('active');
     supportChat.classList.remove('active');
-    faqsMenu.classList.remove('active');
     mobileMenu.classList.remove('active');
 }
 
@@ -22,7 +21,6 @@ document.querySelector('#cart-btn').onclick = () =>{
     cartItem.classList.toggle('active');
     searchForm.classList.remove('active');
     supportChat.classList.remove('active');
-    faqsMenu.classList.remove('active');
     mobileMenu.classList.remove('active');
 }
 
@@ -33,7 +31,6 @@ document.querySelector('#chat-btn').onclick = () =>{
     supportChat.classList.toggle('active');
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
-    faqsMenu.classList.remove('active');
     mobileMenu.classList.remove('active');
 }
 
@@ -42,35 +39,14 @@ let mobileMenu = document.querySelector('.mobile-menu-container');
 
 document.querySelector('#mobile-menu').onclick = () =>{
     mobileMenu.classList.toggle('active');
-    faqsMenu.classList.remove('active');
     searchForm.classList.remove('active');
     cartItem.classList.remove('active');
     supportChat.classList.remove('active');
 }
-
-/* FAQs According */
-let faqsMenu = document.querySelector('.faqs-menu-container');
-
-document.querySelector('#faqs-btn').onclick = () =>{
-    faqsMenu.classList.toggle('active');
-    searchForm.classList.remove('active');
-    cartItem.classList.remove('active');
-    supportChat.classList.remove('active');
-    mobileMenu.classList.remove('active');
-}
-
-let faqs = document.querySelectorAll('.faq');
-
-faqs.forEach(faq => {
-    faq.addEventListener("click", () => {
-        faq.classList.toggle('active');
-    });
-});
 
 /* Window Scrolling */
 window.onscroll = () =>{
     searchForm.classList.remove('active');
-    faqsMenu.classList.remove('active');
 }
 
 
